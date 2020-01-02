@@ -1,49 +1,74 @@
-import axios from "axios";
 
 const state = {
-  todos: []
+  todos: [
+    {
+      "userId": 1,
+      "id": 1,
+      "title": "TAREFA 1",
+      "completed": false
+    },
+    {
+      "userId": 1,
+      "id": 2,
+      "title": "TAREFA 2",
+      "completed": false
+    },
+    {
+      "userId": 1,
+      "id": 3,
+      "title": "TAREFA 3",
+      "completed": false
+    },]
 };
 const getters = {
   allTodos: state => state.todos
 };
 const actions = {
-  async fetchTodos({ commit }) {
-    const response = await axios.get(
-      "https://jsonplaceholder.typicode.com/todos"
-    );
-    commit("setTodos", response.data);
+  fetchTodos({ commit }) {
+    const response =[
+      {
+        "userId": 1,
+        "id": 1,
+        "title": "TAREFA 1",
+        "completed": false
+      },
+      {
+        "userId": 1,
+        "id": 2,
+        "title": "TAREFA 2",
+        "completed": false
+      },
+      {
+        "userId": 1,
+        "id": 3,
+        "title": "TAREFA 3",
+        "completed": false
+      },]
+      commit("fetchTodos", response.data);
   },
-  async addTodo({ commit }, title) {
-    const response = await axios.post(
-      "https://jsonplaceholder.typicode.com/todos",
-      { title, completed: false }
-    );
-    commit("newTodo", response.data);
-  },
-  async deleteTodo({ commit }, id) {
-    await axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`);
+
+   deleteTodo({ commit }, id) {
     commit("removeTodo", id);
   },
-  async filterTodos({ commit }, e) {
-    const limit = parseInt(
-      e.target.options[e.target.options.selectedIndex].innerText
-    );
-    const response = await axios.get(
-      `https://jsonplaceholder.typicode.com/todos?_limit=${limit}`
-    );
-    commit("setTodos", response.data);
+   addTodo({ commit }, title) {
+    const new_index =  state.todos.length
+    const response =  {
+            "userId": 1,
+            "id": new_index ,
+            "title": title,
+            "completed": false
+          }
+    commit("newTodo",response);
   },
-  async updateTodo({ commit }, updTodo) {
-    const response = await axios.put(
-      `https://jsonplaceholder.typicode.com/todos/${updTodo.id}`,
-      updTodo
-    );
-    commit("updateTodo", response.data);
+   updateTodo({ commit }, updTodo) {
+    updTodo.completed = true
+    commit("updateTodo",updTodo);
   }
+
 };
 const mutations = {
   setTodos: (state, todos) => (state.todos = todos),
-  newTodo: (state, todo) => state.todos.unshift(todo),
+  newTodo: (state, todo) => state.todos.push(todo),
   removeTodo: (state, id) =>
     (state.todos = state.todos.filter(t => t.id !== id)),
   updateTodo: (state, updTodo) => {

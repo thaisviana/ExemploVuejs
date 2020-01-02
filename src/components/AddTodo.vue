@@ -21,7 +21,7 @@ export default {
   },
   methods: {
     ...mapActions(["addTodo"]),
-    onSubmit(e) {
+    onSubmit() {
       this.addTodo(this.title);
     }
   }
@@ -35,13 +35,13 @@ form {
 input[type="text"] {
   flex: 10;
   padding: 10px;
-  border: 1px solid #41b883;
+  border: 1px solid #1BBC9B;
   outline: 0;
 }
 input[type="submit"] {
   flex: 2;
-  background: #41b883;
-  border: 1px solid #41b883;
+  background: #1BBC9B;
+  border: 1px solid #1BBC9B;
   color: #fff;
   cursor: pointer;
 }
