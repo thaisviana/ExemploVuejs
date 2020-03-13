@@ -25,33 +25,11 @@ const getters = {
 };
 const actions = {
   fetchTodos({ commit }) {
-    const response =[
-      {
-        "userId": 1,
-        "id": 1,
-        "title": "TAREFA 1",
-        "completed": false
-      },
-      {
-        "userId": 1,
-        "id": 2,
-        "title": "TAREFA 2",
-        "completed": false
-      },
-      {
-        "userId": 1,
-        "id": 3,
-        "title": "TAREFA 3",
-        "completed": false
-      },]
-      commit("fetchTodos", response.data);
+      commit("setTodos");
   },
 
-   deleteTodo({ commit }, id) {
-    commit("removeTodo", id);
-  },
    addTodo({ commit }, title) {
-    const new_index =  state.todos.length
+    const new_index =  state.todos.length +1
     const response =  {
             "userId": 1,
             "id": new_index ,
@@ -60,23 +38,11 @@ const actions = {
           }
     commit("newTodo",response);
   },
-   updateTodo({ commit }, updTodo) {
-    updTodo.completed = true
-    commit("updateTodo",updTodo);
-  }
-
+  
 };
 const mutations = {
-  setTodos: (state, todos) => (state.todos = todos),
+  setTodos: (state) => state.todos,
   newTodo: (state, todo) => state.todos.push(todo),
-  removeTodo: (state, id) =>
-    (state.todos = state.todos.filter(t => t.id !== id)),
-  updateTodo: (state, updTodo) => {
-    const index = state.todos.findIndex(t => t.id === updTodo.id);
-    if (index !== -1) {
-      state.todos.splice(index, 1, updTodo);
-    }
-  }
 };
 
 export default {
