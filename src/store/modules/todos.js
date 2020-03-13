@@ -5,19 +5,22 @@ const state = {
       "userId": 1,
       "id": 1,
       "title": "TAREFA 1",
-      "completed": false
+      "completed": false,
+      "description" : "oi"
     },
     {
       "userId": 1,
       "id": 2,
       "title": "TAREFA 2",
-      "completed": false
+      "completed": false,
+      "description" : "oi"
     },
     {
       "userId": 1,
       "id": 3,
       "title": "TAREFA 3",
-      "completed": false
+      "completed": false,
+      "description" : "oi"
     },]
 };
 const getters = {

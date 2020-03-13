@@ -23,6 +23,7 @@
         :class="{'is-complete':todo.completed}"
       >
         {{ todo.title }}
+        <div><p> {{ todo.description }}</p></div>
        
       </div>
     </div>
