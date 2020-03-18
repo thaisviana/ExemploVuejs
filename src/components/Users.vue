@@ -3,7 +3,7 @@
   <div>
     <h3>Listagem de Usuários</h3>
     
-    <div class="todos">
+    <div class="photos">
       <div
        
         v-for="u in allUsers"
@@ -32,10 +32,10 @@ export default {
 </script>
 
 <style>
-.todos {
+.photos{
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2rem;
 }
 .todo {
   border: 1px solid #ccc;

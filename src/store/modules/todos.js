@@ -6,21 +6,24 @@ const state = {
       "id": 1,
       "title": "TAREFA 1",
       "completed": false,
-      "description" : "oi"
+      "description" : "oi",
+      "thumbnailUrl": "https://via.placeholder.com/150/7ff922"
     },
     {
       "userId": 1,
       "id": 2,
       "title": "TAREFA 2",
       "completed": false,
-      "description" : "oi"
+      "description" : "oi",
+      "thumbnailUrl": "https://via.placeholder.com/150/7ff922"
     },
     {
       "userId": 1,
       "id": 3,
       "title": "TAREFA 3",
       "completed": false,
-      "description" : "oi"
+      "description" : "oi",
+      "thumbnailUrl": "https://via.placeholder.com/150/7ff922"
     },]
 };
 const getters = {
@@ -37,7 +40,9 @@ const actions = {
             "userId": 1,
             "id": new_index ,
             "title": title,
-            "completed": false
+            "completed": false,
+            "description" : "oi",
+            "thumbnailUrl": "https://via.placeholder.com/150/7ff922"
           }
     commit("newTodo",response);
   },
