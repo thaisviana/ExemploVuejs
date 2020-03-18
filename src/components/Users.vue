@@ -1,6 +1,8 @@
 <template>
 
   <div>
+
+  <div>
     <h3>Listagem de Usuários</h3>
     
     <div class="photos">
@@ -10,8 +12,25 @@
         :key="u.id"
         class="todo"
       >
-        {{ u.name }}
-       
+
+        <div>Name: {{ u.name }}</div>
+        <div>Username: {{ u.username }}</div>
+        <div>Email: {{ u.email }}</div>
+        <div>Address:</div>
+        <div>Street: {{ u.address.street }}</div>
+        <div>Suite: {{ u.address.suite }}</div>
+        <div>City: {{ u.address.city }}</div>
+        <div>Zipcode: {{ u.address.zipcode }}</div>
+        <div>Geo:</div>
+        <div>Latitude: {{ u.address.geo.lat }}</div>
+        <div>Longitude: {{ u.address.geo.lng }}</div>
+        <div>Phone: {{ u.phone }}</div>
+        <div>Website: {{ u.website }}</div>
+        <div>Company:</div>
+        <div>Name: {{ u.company.name }}</div>
+        <div>Catch Phrase: {{ u.company.catchPhrase }}</div>
+        <div>BS: {{ u.company.bs }}</div>
+
       </div>
     </div>
   </div>

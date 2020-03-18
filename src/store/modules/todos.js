@@ -34,14 +34,14 @@ const actions = {
       commit("setTodos");
   },
 
-   addTodo({ commit }, title) {
+   addTodo({ commit }, todo_add) {
     const new_index =  state.todos.length +1
     const response =  {
             "userId": 1,
             "id": new_index ,
-            "title": title,
+            "title": todo_add.title,
             "completed": false,
-            "description" : "oi",
+            "description" : todo_add.description,
             "thumbnailUrl": "https://via.placeholder.com/150/7ff922"
           }
     commit("newTodo",response);

@@ -3,7 +3,8 @@
     <h3>Add Todo</h3>
     <div class="add">
       <form @submit.prevent="onSubmit">
-        <input type="text" v-model="title" placeholder="Add todo...">
+        <input type="text" v-model="todo_add.title" placeholder="Add todo...">
+        <input type="text" v-model="todo_add.description" placeholder="Add description...">
         <input type="submit" value="Submit">
       </form>
     </div>
@@ -16,13 +17,16 @@ export default {
   name: "AddTodo",
   data() {
     return {
-      title: ""
+      todo_add:{
+        title: "",
+        descrption: ""
+      }     
     };
   },
   methods: {
     ...mapActions(["addTodo"]),
     onSubmit() {
-      this.addTodo(this.title);
+      this.addTodo(this.todo_add);
     }
   }
 };
