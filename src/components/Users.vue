@@ -1,10 +1,11 @@
 <template>
 
-  <div>
 
   <div>
     <h3>Listagem de Usuários</h3>
-    
+
+    <b-button to="AddUser">Adicionar Usuário</b-button>
+
     <div class="photos">
       <div
        

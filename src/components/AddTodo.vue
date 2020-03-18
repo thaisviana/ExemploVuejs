@@ -19,17 +19,10 @@ export default {
   name: "AddTodo",
   data() {
     return {
-<<<<<<< HEAD
-      todo_add:{
-        title: "",
-        descrption: ""
-      }     
-=======
       todo_add :{
         title: "",
         description: ""
       }
->>>>>>> 1c3a5ec21b9d846e9972dd71d49eddd97a374c4c
     };
   },
   methods: {
