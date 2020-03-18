@@ -10,6 +10,7 @@
        
         v-for="todo in allTodos"
         :key="todo.id"
+        :id="todo.id"
         class="todo"
         :class="{'is-complete':todo.completed}"
       >
