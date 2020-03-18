@@ -1,11 +1,13 @@
 <template>
   <div>
     <h3>Add Todo</h3>
-    <div class="add">
+    <div>
       <form @submit.prevent="onSubmit">
-        <input type="text" v-model="todo_add.title" placeholder="Add todo...">
-        <input type="text" v-model="todo_add.description" placeholder="Add description...">
-        <input type="submit" value="Submit">
+        <div><h2>Title:</h2></div>
+        <div><input type="text" v-model="todo_add.title" placeholder="Add title"></div>
+        <div><h2>Description:</h2></div>
+        <div><input type="text" v-model="todo_add.description" placeholder="Add title"></div>
+        <div><input type="submit" value="Submit"></div>
       </form>
     </div>
   </div>
@@ -17,10 +19,17 @@ export default {
   name: "AddTodo",
   data() {
     return {
+<<<<<<< HEAD
       todo_add:{
         title: "",
         descrption: ""
       }     
+=======
+      todo_add :{
+        title: "",
+        description: ""
+      }
+>>>>>>> 1c3a5ec21b9d846e9972dd71d49eddd97a374c4c
     };
   },
   methods: {
@@ -34,9 +43,10 @@ export default {
 
 <style scoped>
 form {
-  display: flex;
+  display: block;
 }
-input[type="text"] {
+input[type="text"],input[type="textarea"] {
+  width: 100%;
   flex: 10;
   padding: 10px;
   border: 1px solid #1BBC9B;
@@ -48,5 +58,8 @@ input[type="submit"] {
   border: 1px solid #1BBC9B;
   color: #fff;
   cursor: pointer;
+  width: 100%;
+  height: 40px;
+  margin: 10px;
 }
 </style>

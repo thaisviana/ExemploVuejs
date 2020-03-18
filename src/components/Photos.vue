@@ -7,7 +7,7 @@
         :key="photo.id"
         class="todo"
       >
-        {{ photo.title }}
+        {{ photo.name }}
        <div> <img :src="photo.thumbnailUrl"/></div>
       </div>
     </div>
