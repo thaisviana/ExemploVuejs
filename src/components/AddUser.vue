@@ -2,6 +2,72 @@
     <div>
 
   <h1>ADD USER</h1>
+  <form @submit.prevent="onSubmit">
+      <label for="name">Name:</label>
+      <br />
+      <input type="text" id="name" name="name" v-model="user_add.name" />
+      <br />
+      <label for="username">Username:</label>
+      <br />
+      <input type="text" id="username" name="username" v-model="user_add.username" />
+      <br />
+      <label for="email">Email:</label>
+      <br />
+      <input type="email" id="email" name="email" v-model="user_add.email" />
+      <br />
+      <br />
+      <div class="divisionForm">Address:</div>
+      <label for="street">Street:</label>
+      <br />
+      <input type="text" id="street" name="street" v-model="user_add.address.street" />
+      <br />
+      <label for="suite">Suite:</label>
+      <br />
+      <input type="text" id="suite" name="suite" v-model="user_add.address.suite" />
+      <br />
+      <label for="city">City:</label>
+      <br />
+      <input type="text" id="city" name="city" v-model="user_add.address.city" />
+      <br />
+      <label for="zipcode">Zipcode:</label>
+      <br />
+      <input type="text" id="zipcode" name="zipcode" v-model="user_add.address.zipcode" />
+      <br />
+      <br />
+      <div class="divisionForm">Geo:</div>
+      <label for="lat">Lat:</label>
+      <br />
+      <input type="text" id="lat" name="lat" v-model="user_add.address.geo.lat" />
+      <br />
+      <label for="long">Long:</label>
+      <br />
+      <input type="text" id="long" name="long" v-model="user_add.address.geo.lng" />
+      <br />
+      <label for="phone">Phone:</label>
+      <br />
+      <input type="text" id="phone" name="phone" v-model="user_add.phone" />
+      <br />
+      <label for="website">Website:</label>
+      <br />
+      <input type="text" id="website" name="website" v-model="user_add.website" />
+      <br />
+      <br />
+      <div class="divisionForm">Company:</div>
+      <label for="companyName">Name:</label>
+      <br />
+      <input type="text" id="companyName" name="companyName" v-model="user_add.company.name" />
+      <br />
+      <label for="catchPhrase">Catch Phrase:</label>
+      <br />
+      <input type="text" id="catchPhrase" name="catchPhrase" v-model="user_add.company.catchPhrase" />
+      <br />
+      <label for="companyBs">BS:</label>
+      <br />
+      <input type="text" id="companyBs" name="companyBs" v-model="user_add.company.bs" />
+      <br />
+      <br />
+      <button type="submit">Submit</button>
+    </form>
   
   </div>
 </template>
@@ -39,17 +105,25 @@ export default {
   methods: {
     ...mapActions(["addUser"]),
     onSubmit() {
-      this.addTodo(this.user_add);
+      console.log(this.user_add)
+      this.addUser(this.user_add);
     }
   }
 };
 </script>
 
 <style scoped>
+label, button, input {
+    margin-left: 100px;
+}
+
+.divisionForm {
+   margin-left: 100px;
+}
 form {
   display: block;
 }
-input[type="text"],input[type="textarea"] {
+input[type="text"],input[type="email"],input[type="textarea"] {
   width: 100%;
   flex: 10;
   padding: 10px;
