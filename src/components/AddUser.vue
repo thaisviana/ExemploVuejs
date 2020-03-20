@@ -107,6 +107,8 @@ export default {
     onSubmit() {
       console.log(this.user_add)
       this.addUser(this.user_add);
+      alert("Usuário Adicionado com sucesso")
+      //this.$router.push({name : "users"})
     }
   }
 };

@@ -1,9 +1,10 @@
 <template>
  <div>
     <h3>Listagem de Usuários</h3>
-
-    <button to="adduser">Adicionar Usuário</button>
-
+  <!-- <router-link to="/form">
+      <button >Adicionar Usuário</button>
+  </router-link> -->
+  <div> <AddUser/> </div>
     <div class="photos">
       <div
        
@@ -39,10 +40,12 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+import AddUser from "./AddUser"
 export default {
   name: "Users",methods: {
     ...mapActions(["getUsers"]),
   },
+  components:{AddUser},
   computed: mapGetters(["allUsers"]),
   created() {
     this.getUsers();

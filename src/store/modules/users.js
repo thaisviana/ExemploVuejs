@@ -15,10 +15,14 @@ const state = {
             commit('getUsers', response.data);
         });
     },
+    addUser({commit} , new_user){
+      commit('addUser', new_user);
+    }
     
   };
   const mutations = {
     getUsers: (state, users) => (state.users = users),
+    addUser: (state, new_user) => state.users.push(new_user)
   };
  
   export default {
