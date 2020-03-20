@@ -46,11 +46,16 @@ const actions = {
           }
     commit("newTodo",response);
   },
+  deleteTodo({ commit }, id) {
+    commit("removeTodo", id);
+  },
   
 };
 const mutations = {
   setTodos: (state) => state.todos,
   newTodo: (state, todo) => state.todos.push(todo),
+  removeTodo: (state, id) =>
+    (state.todos = state.todos.filter(t => t.id !== id)),
 };
 
 export default {

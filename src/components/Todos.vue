@@ -18,6 +18,7 @@
        
        <div> <img :src="todo.thumbnailUrl"/></div>
         <div><p> {{ todo.description }}</p></div>
+        <i @click="deleteTodo(todo.id)" class="fas fa-trash-alt"></i>
        
       </div>
     </div>
@@ -31,7 +32,7 @@ export default {
   name: "todos",
   components:{AddTodo},
   methods: {
-    ...mapActions(["fetchTodos"]),
+    ...mapActions(["fetchTodos", "deleteTodo"]),
 
   },
   computed: mapGetters(["allTodos"]),
