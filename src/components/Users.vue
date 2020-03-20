@@ -1,8 +1,9 @@
 <template>
-
-  <div>
+ <div>
     <h3>Listagem de Usuários</h3>
-    
+
+    <button to="adduser">Adicionar Usuário</button>
+
     <div class="photos">
       <div
        

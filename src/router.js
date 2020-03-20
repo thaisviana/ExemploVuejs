@@ -26,7 +26,7 @@ export default new VueRouter({
             path: '/photos',
             name: 'photos',
             component: Photos
-        },
+        }
       
     ]
 });
