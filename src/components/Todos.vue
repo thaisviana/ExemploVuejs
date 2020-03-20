@@ -15,8 +15,7 @@
         :class="{'is-complete':todo.completed}"
       >
         {{ todo.title }}
-       
-       <div> <img :src="todo.thumbnailUrl"/></div>
+      
         <div><p> {{ todo.description }}</p></div>
         <i @click="deleteTodo(todo.id)" class="fas fa-trash-alt"></i>
        

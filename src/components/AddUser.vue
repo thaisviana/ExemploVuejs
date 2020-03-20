@@ -2,7 +2,9 @@
     <div>
 
   <h1>ADD USER</h1>
-  <form @submit.prevent="onSubmit">
+  <button type="button"   v-on:click="mostrarCarrinho">
+         Ver form</button>
+  <form @submit.prevent="onSubmit" v-if="mostrarFilmes">
       <label for="name">Name:</label>
       <br />
       <input type="text" id="name" name="name" v-model="user_add.name" />
@@ -78,6 +80,7 @@ export default {
   name: "AddUser",
   data() {
     return {
+      mostrarFilmes: false,
       user_add :{
         name: "",
         username: "",
@@ -104,10 +107,13 @@ export default {
   },
   methods: {
     ...mapActions(["addUser"]),
+    
     onSubmit() {
       this.addUser(this.user_add);
       alert("Usuário Adicionado com sucesso")
       //this.$router.push({name : "users"})
+    },mostrarCarrinho() {
+      this.mostrarFilmes = this.mostrarFilmes ? false : true;
     }
   }
 };

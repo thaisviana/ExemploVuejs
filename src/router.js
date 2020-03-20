@@ -4,6 +4,7 @@ import Todos from './components/Todos'
 import Users from './components/Users'
 import Photos from './components/Photos'
 import AddUser from './components/AddUser'
+import DetailUser from './components/DetailUser'
 
 Vue.use(VueRouter);
 
@@ -18,6 +19,10 @@ export default new VueRouter({
             path: '/users',
             name: 'users',
             component: Users
+        },{
+            path: '/users/:id',
+            name: 'usersDetail',
+            component: DetailUser
         },{
             path: '/form',
             name: 'adduser',
