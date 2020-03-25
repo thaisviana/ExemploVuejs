@@ -31,8 +31,7 @@ export default {
     ...mapActions(["getUsers"]),
     },
     data: function()
-    {
-    return{ id : this.$route.params.id  };
+    {return{ id : this.$route.params.id  };
     },computed: {
         ...mapGetters(["usuarioById",])
     },created() {

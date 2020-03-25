@@ -5,6 +5,7 @@ import Users from './components/Users'
 import Photos from './components/Photos'
 import AddUser from './components/AddUser'
 import DetailUser from './components/DetailUser'
+import DetailTodo from './components/DetailTodo'
 
 Vue.use(VueRouter);
 
@@ -15,6 +16,10 @@ export default new VueRouter({
             path: '/',
             name: 'ok',
             component: Todos
+        },{
+            path: '/todo/:id',
+            name: 'detailTodo',
+            component: DetailTodo
         },{
             path: '/users',
             name: 'users',
