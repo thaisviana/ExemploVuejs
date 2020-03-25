@@ -3,6 +3,7 @@ import axios from "axios";
 const state = {
     users:[]
   };
+  
   const getters = {
     allUsers: state => state.users,
     usuarioById: (state) => (id) => (state.users = state.users.filter(u => u.id == id))[0],

@@ -5,7 +5,7 @@ const state = {
 };
 const getters = {
   allTodos: state => state.todos,
-  todoById: (state) => (id) => (state.todos = state.todos.filter(t => t.id == id))[0],
+  todoById: (state) => (id) => (state.todos.filter(t => t.id == id))[0],
 };
 const actions = {
   fetchTodos({ commit }) {
@@ -25,13 +25,14 @@ const actions = {
             "id": new_index ,
             "title": todo_add.title,
             "completed": false,
-            "description" : todo_add.description,
-            "thumbnailUrl": "https://via.placeholder.com/150/7ff922"
           }
     commit("newTodo",response);
   },
   deleteTodo({ commit }, id) {
     commit("removeTodo", id);
+  },
+  updateTodo({ commit }, updTodo) {
+    commit("updateTodo", updTodo);
   },
   
 };
@@ -41,6 +42,12 @@ const mutations = {
   newTodo: (state, todo) => state.todos.push(todo),
   removeTodo: (state, id) =>
     (state.todos = state.todos.filter(t => t.id !== id)),
+  updateTodo: (state, updTodo) => {
+      const index = state.todos.findIndex(t => t.id === updTodo.id)
+      if (index !== -1) {
+        state.todos.splice(index, 1, updTodo);
+        }
+      }
 };
 
 export default {

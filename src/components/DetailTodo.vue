@@ -10,8 +10,9 @@
         Voltar pra listagem
       </router-link>
         <div>title : {{ todoById(id).title }}</div>
-        <div>description : {{ todoById(id).description }}</div>
         <div>completed : {{ todoById(id).completed }}</div>
+        <button @click="editar">Editar Todo</button>
+        <router-view></router-view>
     </div>
 </template>
 
@@ -25,6 +26,11 @@ export default {
             id : this.$route.params.id,}
     },
     computed: mapGetters(["todoById"]),
+    methods: {
+        editar() {
+        this.$router.push({ name: 'edit-todo' , params: { id: this.id } });
+        }
+    }
 
 }
 </script>
