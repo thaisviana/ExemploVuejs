@@ -1,39 +1,23 @@
+import axios from "axios";
 
 const state = {
-  todos: [
-    {
-      "userId": 1,
-      "id": 1,
-      "title": "TAREFA 1",
-      "completed": false,
-      "description" : "oi",
-      "thumbnailUrl": "https://via.placeholder.com/150/7ff922"
-    },
-    {
-      "userId": 1,
-      "id": 2,
-      "title": "TAREFA 2",
-      "completed": false,
-      "description" : "oi",
-      "thumbnailUrl": "https://via.placeholder.com/150/7ff922"
-    },
-    {
-      "userId": 1,
-      "id": 3,
-      "title": "TAREFA 3",
-      "completed": false,
-      "description" : "oi",
-      "thumbnailUrl": "https://via.placeholder.com/150/7ff922"
-    },]
+  todos: []
 };
 const getters = {
-  allTodos: state => state.todos
+  allTodos: state => state.todos,
+  todoById: (state) => (id) => (state.todos = state.todos.filter(t => t.id == id))[0],
 };
 const actions = {
   fetchTodos({ commit }) {
       commit("setTodos");
   },
-
+  getTodos({ commit }) {
+    axios.get(
+        "https://jsonplaceholder.typicode.com/todos"
+      ).then((response) => {
+        commit('getTodo', response.data);
+    });
+},
    addTodo({ commit }, todo_add) {
     const new_index =  state.todos.length +1
     const response =  {
@@ -53,6 +37,7 @@ const actions = {
 };
 const mutations = {
   setTodos: (state) => state.todos,
+  getTodo: (state, todo) => (state.todos = todo),
   newTodo: (state, todo) => state.todos.push(todo),
   removeTodo: (state, id) =>
     (state.todos = state.todos.filter(t => t.id !== id)),

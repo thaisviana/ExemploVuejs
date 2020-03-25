@@ -14,7 +14,12 @@
         class="todo"
         :class="{'is-complete':todo.completed}"
       >
+      <router-link
+           tag="h5"
+           :to="{ name: 'detailTodo', params: { id: todo.id } }"
+       >
         {{ todo.title }}
+      </router-link>
       
         <div><p> {{ todo.description }}</p></div>
         <i @click="deleteTodo(todo.id)" class="fas fa-trash-alt"></i>
@@ -32,12 +37,12 @@ export default {
   name: "todos",
   components:{AddTodo},
   methods: {
-    ...mapActions(["fetchTodos", "deleteTodo"]),
+    ...mapActions(["getTodos", "deleteTodo"]),
 
   },
   computed: mapGetters(["allTodos"]),
   created() {
-    this.fetchTodos();
+    this.getTodos();
   }
 };
 </script>

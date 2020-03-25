@@ -3,6 +3,11 @@
         <h1> Detalhar usuário</h1>
         <div> 
           <h3>{{ usuarioById(id).name }}</h3>
+          <router-link
+           tag="button"
+           :to="{ name: 'users' }">
+        Voltar pra listagem
+      </router-link>
         </div>
         <div> <span>Username:</span> {{ usuarioById(id).username }}</div>
         <div><span>Email:</span> {{ usuarioById(id).email }}</div>
@@ -24,18 +29,13 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters } from "vuex";
 export default {
     name: "DetailUser",
-    methods: {
-    ...mapActions(["getUsers"]),
-    },
     data: function()
     {return{ id : this.$route.params.id  };
     },computed: {
         ...mapGetters(["usuarioById",])
-    },created() {
-        this.getUsers();
     }
 
 }

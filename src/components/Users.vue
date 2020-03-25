@@ -14,7 +14,12 @@
       >
 
         <div> 
-          <h3>{{ u.name }}</h3>
+          <router-link
+           tag="h3"
+           :to="{ name: 'usersDetail', params: { id: u.id } }"
+       >
+        {{ u.name }}
+      </router-link>
         </div>
         <div> <span>Username:</span> {{ u.username }}</div>
         <div><span>Email:</span> {{ u.email }}</div>
