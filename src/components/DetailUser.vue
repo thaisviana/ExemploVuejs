@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="todo">
         <h1> Detalhar usuário</h1>
         <div> 
           <h3>{{ usuarioById(id).name }}</h3>

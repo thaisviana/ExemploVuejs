@@ -2,16 +2,21 @@
     <div>
     
         <h1>DETALHAR TODO</h1>
-        <p>{{ id }}</p> 
         <router-link
-           tag="button"
+           tag="a"
            :to="{ name: 'ok' }"
        >
         Voltar pra listagem
       </router-link>
-        <div>title : {{ todoById(id).title }}</div>
-        <div>completed : {{ todoById(id).completed }}</div>
+      <div class="detail">
+        <div><h3>title :</h3> {{ todoById(id).title }}</div>
+        <div>
+            <span v-if="todoById(id).completed">completed : <i class="fas fa-check"></i></span>  
+            <span v-else>completed : <i class="fas fa-times"></i></span> 
+        </div>
+
         <button @click="editar">Editar Todo</button>
+        </div>
         <router-view></router-view>
     </div>
 </template>
@@ -36,5 +41,23 @@ export default {
 </script>
 
 <style>
+button{
+  flex: 2;
+  background: #1BBC9B;
+  border: 1px solid #1BBC9B;
+  color: #fff;
+  cursor: pointer;
+  width: 100%;
+  height: 40px;
+  margin: 10px;
+}
+.detail{
+    padding: 24px;
+}
+i {
+  cursor: pointer;
+  color: #000;
+  position: inherit;
+}
 
 </style>
