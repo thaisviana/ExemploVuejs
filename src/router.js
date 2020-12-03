@@ -1,12 +1,9 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Todos from './components/Todos'
-import Users from './components/Users'
-import Photos from './components/Photos'
-import AddUser from './components/AddUser'
-import DetailUser from './components/DetailUser'
-import DetailTodo from './components/DetailTodo'
-import EditTodo from './components/EditTodo'
+import ListaDeUsuarios from './components/ListaDeUsuarios'
+import DetalharUsuario from './components/DetalharUsuario'
+import Joke from './components/Joke'
+
 
 Vue.use(VueRouter);
 
@@ -15,36 +12,17 @@ export default new VueRouter({
     routes: [
         {
             path: '/',
-            name: 'ok',
-            component: Todos
-        },{
-            path: '/todo/:id',
-            name: 'detailTodo',
-            component: DetailTodo,
-            children: [
-                {
-                    path: 'edit',
-                    name: 'edit-todo',
-                    component: EditTodo
-                }
-            ]
-        },{
-            path: '/users',
-            name: 'users',
-            component: Users
-        },{
+            name: 'lista',
+            component: ListaDeUsuarios
+        },
+        {
             path: '/users/:id',
-            name: 'usersDetail',
-            component: DetailUser
+            name: 'detalharUsuario',
+            component: DetalharUsuario
         },{
-            path: '/form',
-            name: 'adduser',
-            component: AddUser
-        },{
-            path: '/photos',
-            name: 'photos',
-            component: Photos
-        }
-      
+            path: '/joke',
+            name: 'joke',
+            component: Joke
+        },
     ]
 });
